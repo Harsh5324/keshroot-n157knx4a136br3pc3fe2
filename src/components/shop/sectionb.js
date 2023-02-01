@@ -32,18 +32,10 @@ const ProductDetails = () => (
         <p>Keshroot Ayurvedic Oil is an all-natural hair care solution made from 13 rich herbs and extracts that nourish the roots and promote healthy, strong hair. This powerful ayurvedic oil is designed to be a one-stop solution for all of your hair problems, helping you achieve the strong, healthy roots you need to move ahead in life.</p>
         <p>With its unique blend of natural ingredients, Keshrrot Ayurvedic Oil nourishes and strengthens the hair from the root, helping to prevent breakage and promote growth. Whether you're dealing with dry, damaged hair, or simply looking to maintain the health and strength of your locks, this ayurvedic oil is here to be your partner in hair care.</p>
         <div className='images'>
-            <section>
-                <img src={images.feature} />
-            </section>
-            <section>
-                <img src={images.feature} />
-            </section>
-            <section>
-                <img src={images.feature} />
-                <img src={images.feature} />
-                <img src={images.feature} />
-                <img src={images.feature} />
-            </section>
+            <img src={images.product1} />
+            <img src={images.product2} />
+            <img src={images.product3} />
+            <img src={images.product4} />
         </div>
     </>
 );

@@ -13,7 +13,8 @@ const Navigation = () => {
             <Route path='/' element={<Home />} />
             <Route path='/shop' element={<Shop />} />
             <Route path='/about-us' element={<AboutUs />} />
-            <Route path='/blog' element={<Blog />} />
+            <Route path='/blog' element={<Blog post={false} />} />
+            <Route path='/blog/:post' element={<Blog post />} />
             <Route path='/contact-us' element={<ContactUs />} />
         </Routes>
     </Router>);

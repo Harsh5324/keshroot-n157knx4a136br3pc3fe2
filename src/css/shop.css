@@ -78,33 +78,33 @@ h3 {
     border-bottom: 1px solid #382924;
 }
 
-.tab-view .content .images {
+/* .tab-view .content .images {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
     width: 100%;
     padding: 0;
     align-items: flex-start;
-}
+} */
 
-.tab-view .content .images section {
+/* .tab-view .content .images section {
     display: flex;
     flex-wrap: wrap
 }
 
 .tab-view .content .images section img {
     max-width: calc(100vw - 20px);
-}
+} */
 
-.tab-view .content .images section:first-child img {
+/* .tab-view .content .images section:first-child img {
     width: 1000px;
     margin-bottom: 30px;
 }
 
 .tab-view .content .images section:nth-child(2) img {
     width: 700px;
-}
-
+} */
+/* 
 .tab-view .content .images section:nth-child(3) {
     margin-left: -5px;
     margin-right: -5px;
@@ -114,7 +114,7 @@ h3 {
     width: 150px;
     height: 120px;
     margin: 5px;
-}
+} */
 
 /* .tab-view .content .images section:nth-child(3) img:first-child {
     margin-left: 0;
@@ -123,6 +123,20 @@ h3 {
 .tab-view .content .images section:nth-child(3) img:last-child {
     margin-right: 0;
 } */
+
+.tab-view .content .images {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.tab-view .content .images img {
+    width: 1200px;
+    margin: 10px 0;
+    max-width: 100%;
+}
 
 .product {
     width: 1200px;
@@ -146,6 +160,7 @@ h3 {
     position: relative;
     width: 75px;
 }
+
 
 .product section:first-child .images img {
     width: 75px;
