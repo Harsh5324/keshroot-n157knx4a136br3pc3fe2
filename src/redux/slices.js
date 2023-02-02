@@ -15,9 +15,37 @@ const homeApiSlice = createSlice({
     },
 });
 
+const authSlice = createSlice({
+    name: 'auth',
+    initialState: {
+        value: false,
+    },
+    reducers: {
+        showAuth: (state, action) => {
+            state.value = action.payload;
+        }
+    }
+});
+
+const authPageSlice = createSlice({
+    name: 'authPage',
+    initialState: {
+        value: 'login',
+    },
+    reducers: {
+        authPage: (state, action) => {
+            state.value = action.payload;
+        }
+    }
+});
+
 const { homeApi } = homeApiSlice.actions;
+export const { showAuth } = authSlice.actions;
+export const { authPage } = authPageSlice.actions;
 
 export const homeApiReducer = homeApiSlice.reducer;
+export const authReducer = authSlice.reducer;
+export const authPageReducer = authPageSlice.reducer;
 
 export const fetchHomeApi = () => {
     return async function fetchHomeApiThunk(dispatch) {

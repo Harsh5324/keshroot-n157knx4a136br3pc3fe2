@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import icons from '../constants/icons';
 import images from '../constants/images';
 
 import Offer from './offer';
 
+import { showAuth } from '../redux/slices';
+
 const Header = ({ activepage }) => {
+
+    const dispatch = useDispatch();
 
     const handleClose = () => {
         document.querySelector('.cover').style.display = 'none';
@@ -74,7 +79,7 @@ const Header = ({ activepage }) => {
                     <section className='third-section'>
                         <div className='icons'>
                             <img src={icons.search} />
-                            <img src={icons.user} />
+                            <img src={icons.user} onClick={() => dispatch(showAuth(true))} />
                             <img src={icons.shoppingBag} />
                         </div>
                     </section>
