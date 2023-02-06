@@ -85,7 +85,7 @@ app.get('/home', async (req, res) => {
             if (item.sectionId === 4) {
                 data.sectionC.heading = item.header;
                 data.sectionC.content = item.content;
-                data.sectionC.image = item.image;
+                data.sectionC.image = item.media;
             }
         })
 

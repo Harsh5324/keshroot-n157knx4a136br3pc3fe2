@@ -41,6 +41,8 @@ const icons = {
     check: require('../assets/icons/check.png'),
     aboutLeftArrow: require('../assets/icons/about_left_arrow.png'),
     aboutRightArrow: require('../assets/icons/about_right_arrow.png'),
+    retry: require('../assets/icons/retry.png'),
+    leftArrowCircle: require('../assets/icons/left_arrow_circle.png'),
 };
 
 export default icons;

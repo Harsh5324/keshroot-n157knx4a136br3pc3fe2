@@ -75,25 +75,33 @@
     height: 100px;
 }
 
-.container-section #form .form .form-section:first-child input:first-child {
-    width: 350px;
+.container-section #form .form .form-section .row:first-child {
     margin-right: 20px;
     max-width: 100%;
 }
 
-.container-section #form .form .form-section:first-child input:nth-child(2) {
-    width: 350px;
+.container-section #form .form .form-section:first-child .row:nth-child(2) {
+    /* width: 350px; */
     max-width: 100%;
 }
 
-.container-section #form .form .form-section:nth-child(2) input:first-child {
-    width: 350px;
-    margin-right: 20px;
+.container-section #form .form .form-section:first-child .row:first-child {
+    width: 340px;
     max-width: 100%;
 }
 
-.container-section #form .form .form-section:nth-child(2) input:nth-child(2) {
-    width: 350px;
+.container-section #form .form .form-section:first-child .row:nth-child(2) {
+    width: 340px;
+    max-width: 100%;
+}
+
+.container-section #form .form .form-section:nth-child(2) .row:first-child {
+    width: 340px;
+    max-width: 100%;
+}
+
+.container-section #form .form .form-section:nth-child(2) .row:nth-child(2) {
+    width: 340px;
     max-width: 100%;
 }
 
@@ -182,6 +190,28 @@
     height: 20px;
 }
 
+.form-section .err {
+    color: #d63031;
+    font-size: 14px;
+    width: 350px;
+    margin: 0;
+    max-width: 100%;
+    margin-top: 5px;
+}
+
+.error-section {
+    margin: 0 !important;
+}
+
+.error-section .err:first-child {
+    margin-right: 20px;
+}
+
+.error-section {
+    /* margin: 0 -10px !important; */
+    display: flex;
+}
+
 @media (max-width: 1108px) {
     .container-section {
         flex-direction: column;
@@ -201,10 +231,18 @@
         width: 100%;
     }
 
-    #form .form .form-section input,
-    #form .form .form-section textarea {
+    #form .form .form-section .row input,
+    #form .form .form-section .row textarea {
         width: 100% !important;
         margin: 8px 0 !important;
+    }
+
+    #form .form .form-section .row {
+        width: 100% !important;
+    }
+
+    #form .form .form-section .row {
+        margin: 0 !important;
     }
 
     .form {

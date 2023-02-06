@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import icons from '../../constants/icons';
 import images from '../../constants/images';
 
+import { showCart } from '../../redux/slices';
+
 const SectionA = () => {
 
-    const [index, setIndex] = useState(null);
+    const [index, setIndex] = useState(0);
     const [mlIndex, setMlIndex] = useState(0);
     const [sizes, setSizes] = useState(null);
     const [quantity, setQuantity] = useState(1);
+    const [imageHeight, setImageHeight] = useState(0);
+
+    const mainImageRef = useRef();
+    const dispatch = useDispatch();
 
     const productImages = [];
 
@@ -44,6 +51,8 @@ const SectionA = () => {
             { size: '200 ml - Pack of 2' },
             { size: '300 ml - Pack of 3' }
         ]);
+
+        changeImageHeight();
     }, []);
 
     const handleQuantityAdd = () => {
@@ -54,7 +63,19 @@ const SectionA = () => {
         if (quantity !== 1) {
             setQuantity(quantity - 1);
         }
-    }
+    };
+
+    const changeImageHeight = () => {
+        mainImageRef.current.style.height = (mainImageRef.current.offsetWidth) + 'px';
+        const imgs = document.getElementsByClassName('imgs');
+        for (let i = 0; i < imgs.length; i++) {
+            imgs[i].style.height = (mainImageRef.current.offsetWidth / 5) - 10 + 'px';
+            imgs[i].style.width = (mainImageRef.current.offsetWidth / 6) + 'px';
+            document.querySelector('.images').style.width = (mainImageRef.current.offsetWidth / 6) + 'px';
+        }
+    };
+
+    window.addEventListener('resize', changeImageHeight);
 
     return (<div className='product'>
         <section id='ls'>
@@ -67,7 +88,7 @@ const SectionA = () => {
                     ))
                 }
             </div>
-            <img src={index === null ? images.feature : productImages[index].image} className='main-image' />
+            <img src={index === null ? images.feature : productImages[index].image} className='main-image' style={{ height: imageHeight }} ref={mainImageRef} />
         </section>
         <section id='rs'>
             <h2>Keshroot Bhumija Hair Oil - Ayurvedic Hair Oil For Hair Growth</h2>
@@ -95,7 +116,7 @@ const SectionA = () => {
             <h3>Quantity</h3>
             <div className='purchase'>
                 <div className='quantity'><span onClick={handleQuantitySubtract}><span></span></span>{quantity}<span onClick={handleQuantityAdd}>+</span></div>
-                <div className='add-to-cart'>Add to cart</div>
+                <div className='add-to-cart' onClick={() => dispatch(showCart(true))}>Add to cart</div>
                 <div className='buy-now'>Buy now</div>
             </div>
         </section>

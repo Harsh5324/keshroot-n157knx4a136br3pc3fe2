@@ -39,13 +39,27 @@ const authPageSlice = createSlice({
     }
 });
 
+const cartShowSlise = createSlice({
+    name: 'showCart',
+    initialState: {
+        value: false,
+    },
+    reducers: {
+        showCart: (state, action) => {
+            state.value = action.payload;
+        }
+    }
+})
+
 const { homeApi } = homeApiSlice.actions;
 export const { showAuth } = authSlice.actions;
 export const { authPage } = authPageSlice.actions;
+export const { showCart } = cartShowSlise.actions;
 
 export const homeApiReducer = homeApiSlice.reducer;
 export const authReducer = authSlice.reducer;
 export const authPageReducer = authPageSlice.reducer;
+export const showCartReducer = cartShowSlise.reducer;
 
 export const fetchHomeApi = () => {
     return async function fetchHomeApiThunk(dispatch) {

@@ -30,7 +30,9 @@ const SedUt = () => {
                 </div>
             </div>
             <div className='rs'>
-                <img src={images.girl} />
+                <video controls>
+                    <source src={data.image} />
+                </video>
             </div>
         </div>
     ) : <></>);

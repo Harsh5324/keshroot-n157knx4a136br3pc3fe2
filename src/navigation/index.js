@@ -11,6 +11,9 @@ import Login from '../pages/auth/login';
 import Signup from '../pages/auth/signup';
 import ForgotPassword from '../pages/auth/forgotpassword';
 import ResetPassword from '../pages/auth/resetpassword';
+import Cart from '../components/cart';
+import ProductCart from '../pages/app/productCart';
+
 import { showAuth } from '../redux/slices';
 
 const Navigation = () => {
@@ -22,12 +25,13 @@ const Navigation = () => {
     useEffect(() => {
         setTimeout(() => {
             dispatch(showAuth(true));
-        }, 7000);
-    }, [])
+        }, 12000);
+    }, []);
 
     return (<Router>
         {auth && (<div className='auth-cover' onClick={() => dispatch(showAuth(false))}></div>)}
         {auth ? authPage === 'login' ? <Login /> : authPage === 'signup' ? <Signup /> : authPage === 'forgotPassword' ? <ForgotPassword /> : <ResetPassword /> : null}
+        <Cart />
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/shop' element={<Shop />} />
@@ -35,6 +39,7 @@ const Navigation = () => {
             <Route path='/blog' element={<Blog post={false} />} />
             <Route path='/blog/:post' element={<Blog post />} />
             <Route path='/contact-us' element={<ContactUs />} />
+            <Route path='/shop/cart' element={<ProductCart />} />
         </Routes>
     </Router>);
 }

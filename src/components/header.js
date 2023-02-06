@@ -7,7 +7,7 @@ import images from '../constants/images';
 
 import Offer from './offer';
 
-import { showAuth } from '../redux/slices';
+import { showAuth, showCart } from '../redux/slices';
 
 const Header = ({ activepage }) => {
 
@@ -25,6 +25,7 @@ const Header = ({ activepage }) => {
 
     useEffect(() => {
         handleClose();
+        window.scrollTo(0, 0);
     }, [])
 
     return (<div className='header'>
@@ -80,7 +81,7 @@ const Header = ({ activepage }) => {
                         <div className='icons'>
                             <img src={icons.search} />
                             <img src={icons.user} onClick={() => dispatch(showAuth(true))} />
-                            <img src={icons.shoppingBag} />
+                            <img src={icons.shoppingBag} onClick={() => dispatch(showCart(true))} />
                         </div>
                     </section>
                 </div>
@@ -100,8 +101,8 @@ const Header = ({ activepage }) => {
             <section className='third-section'>
                 <div className='icons'>
                     <img src={icons.search} />
-                    <img src={icons.user} />
-                    <img src={icons.shoppingBag} />
+                    <img src={icons.user} onClick={() => dispatch(showAuth(true))} />
+                    <img src={icons.shoppingBag} onClick={() => dispatch(showCart(true))} />
                 </div>
             </section>
         </div>

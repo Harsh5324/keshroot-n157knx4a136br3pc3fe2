@@ -31,11 +31,44 @@ const ProductDetails = () => (
     <>
         <p>Keshroot Ayurvedic Oil is an all-natural hair care solution made from 13 rich herbs and extracts that nourish the roots and promote healthy, strong hair. This powerful ayurvedic oil is designed to be a one-stop solution for all of your hair problems, helping you achieve the strong, healthy roots you need to move ahead in life.</p>
         <p>With its unique blend of natural ingredients, Keshrrot Ayurvedic Oil nourishes and strengthens the hair from the root, helping to prevent breakage and promote growth. Whether you're dealing with dry, damaged hair, or simply looking to maintain the health and strength of your locks, this ayurvedic oil is here to be your partner in hair care.</p>
+        <ol>
+            <li>Shake the bottle well and dispense oil directly on the scalp using the applicator.</li>
+            <li>Massage oil into the scalp and work through the hair</li>
+            <li>Leave in for at least 30 minutes or overnight.</li>
+            <li>Rinse thoroughly with shampoo and water to remove.</li>
+        </ol>
+        <p>
+            <b>Direction for Use: </b>
+            Open the KESHROOT HAIR oil cap, Attach the Deep Root Hair
+            Comb Applicator, Place it on the affected area, Press the bottle for the oil to flow, and
+            Massage the oil further into the scalp using your fingertips.
+        </p>
+        <p>
+            <b>Caution: </b>
+            Store in a cool dry place, away from sunlight, heat & moisture. Avoid contact
+            with eyes.
+        </p>
+        <p>
+            <b>Manufactured By: </b>
+            Indo Herbal Products (Unit 2).Plot No.29, Sector 1-B, IIE&#60; Ranipur, Sidcul, Haridwar 249403 (U.K.) Regd. Office: C-84, Panchseel Enclave, New Delhi 110017
+        </p>
+        <p>
+            <b>Mfg Lic. No.: </b>  UK.AY.-290/2014
+        </p>
+        <p>
+            <b>Marketed By: </b>
+            Smart Laboratories Pvt. Ltd. 1004, Brooklyn Tower, Nr. YMCA Club, S. G.
+            Highway, Ahmedabad 380051 (Guj.) <a href='mailto:care@smartlaboratories.co.in'>care@smartlaboratories.co.in</a> | <a href='tel:7949136601'>+91-79–49136601</a>
+        </p>
+        <p>
+            <b>Country of Origin: </b> India
+        </p>
         <div className='images'>
             <img src={images.product1} />
             <img src={images.product2} />
             <img src={images.product3} />
             <img src={images.product4} />
+            <img src={images.product5} />
         </div>
     </>
 );

@@ -18,6 +18,8 @@ import { fetchHomeApi } from '../../redux/slices';
 
 const Home = () => {
 
+    document.title = 'keshroot';
+
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -8,7 +8,8 @@ import SectionB from '../../components/shop/sectionb';
 import '../../css/shop.css';
 
 const Shop = () => {
-    return (<div>
+    document.title = 'Shop - keshroot';
+    return (<div className='shop'>
         <Header activepage='shop' />
         <SectionA />
         <SectionB />

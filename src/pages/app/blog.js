@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
 import images from '../../constants/images';
 
@@ -9,6 +11,14 @@ import Header from '../../components/header';
 import '../../css/blog.css';
 
 const Blog = ({ post }) => {
+
+    document.title = 'Blog - keshroot';
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        getBodyWidth();
+    }, []);
 
     const data = [];
     const recentPostData = [];
@@ -34,21 +44,33 @@ const Blog = ({ post }) => {
         });
     };
 
+    const getBodyWidth = () => {
+        if (document.body.offsetWidth <= 920) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+    };
+
+    window.addEventListener('resize', getBodyWidth);
+
     return (<div className='blog-section'>
         <Header activepage='blog' />
         {!post ? (<h1>Blog</h1>) : <div style={{ marginTop: 50, }}></div>}
         <div className='blog'>
-            <Link className='recent-posts' to='/blog/how-bhumija-ayurvedic-hair-oil-helps-in-reducing-gray-hair'>
-                <h2>Recent posts</h2>
-                {
-                    recentPostData.map(item => (
-                        <div className='recent-post'>
-                            <img src={item.thumbnail} />
-                            <p>{item.description}</p>
-                        </div>
-                    ))
-                }
-            </Link>
+            {!isMobile && (
+                <div className='recent-posts'>
+                    <h2>Recent posts</h2>
+                    {
+                        recentPostData.map(item => (
+                            <Link className='recent-post' to='/blog/how-bhumija-ayurvedic-hair-oil-helps-in-reducing-gray-hair'>
+                                <img src={item.thumbnail} />
+                                <p>{item.description}</p>
+                            </Link>
+                        ))
+                    }
+                </div>
+            )}
             <div className='blog-posts'>
                 {!post ? (
                     <>
@@ -90,21 +112,63 @@ const Blog = ({ post }) => {
                         <Comment />
                     </div>
                 )}
+
+                {isMobile && (
+                    <div className='recent-posts' style={{ marginTop: 50 }}>
+                        <h2>Recent posts</h2>
+                        {
+                            recentPostData.map(item => (
+                                <Link className='recent-post' to='/blog/how-bhumija-ayurvedic-hair-oil-helps-in-reducing-gray-hair'>
+                                    <img src={item.thumbnail} />
+                                    <p>{item.description}</p>
+                                </Link>
+                            ))
+                        }
+                    </div>
+                )}
             </div>
         </div>
         <Footer />
     </div>);
 };
 
-const Comment = () => (
-    <div className='comment'>
+const Comment = () => {
+
+    const initialValues = {
+        firstName: '',
+        email: '',
+        message: '',
+    };
+
+    const validationSchema = yup.object({
+        firstName: yup.string().required('Please enter your first name'),
+        email: yup.string().email('Please enter valid email').required('Please enter your email'),
+        message: yup.string().required('Please enter your message'),
+    });
+
+    const { values, errors, handleChange, handleSubmit } = useFormik({
+        initialValues,
+        validationSchema,
+        validateOnChange: false,
+        validateOnBlur: false,
+        onSubmit: () => alert('Form submitted'),
+    });
+
+    return (<div className='comment'>
         <section>
-            <input type='text' placeholder='First name' />
-            <input type='text' placeholder='Email' />
+            <div className='row'>
+                <input type='text' placeholder='First name' onChange={handleChange('firstName')} />
+                {errors.firstName && (<div className='err'>{errors.firstName}</div>)}
+            </div>
+            <div className='row'>
+                <input type='text' placeholder='Email' onChange={handleChange('email')} />
+                {errors.email && (<div className='err'>{errors.email}</div>)}
+            </div>
         </section>
-        <textarea placeholder='Message' />
-        <button>Post Comment</button>
-    </div>
-);
+        <textarea placeholder='Message' onChange={handleChange('message')} />
+        {errors.message && (<div className='err last'>{errors.message}</div>)}
+        <button onClick={handleSubmit}>Post Comment</button>
+    </div>)
+};
 
 export default Blog;
