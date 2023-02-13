@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
+const { json } = require('express');
 
 const app = express();
 const port = 8000;
@@ -110,6 +111,6 @@ app.get('/home', async (req, res) => {
         res.type('application/json');
         res.send(JSON.stringify(data));
     });
-})
+});
 
 app.listen(port);

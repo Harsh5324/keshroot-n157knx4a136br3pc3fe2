@@ -18,7 +18,7 @@ const images = {
     product3: require('../assets/images/product_3.png'),
     product4: require('../assets/images/product_4.png'),
     product5: require('../assets/images/product_5.png'),
-    blog1: require('../assets/images/blog_1.png'),
+    blog1: require('../assets/images/blog_1.jpg'),
     blog2: require('../assets/images/blog_2.png'),
     blog3: require('../assets/images/blog_3.png'),
     aboutFeature: require('../assets/images/about_feature.png'),

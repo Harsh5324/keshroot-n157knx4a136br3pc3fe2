@@ -46,7 +46,7 @@ const WhatPeople = () => {
     return (data ? (
         <div className='what-people'>
             <h2>{data.heading}</h2>
-            <p>{data.content}</p>
+            {/* <p>{data.content}</p> */}
             <main>
                 <div className='label previos' onClick={handlePrevios}>Previos<span></span></div>
                 <div className='label next' onClick={handleNext}><span></span>Next</div>

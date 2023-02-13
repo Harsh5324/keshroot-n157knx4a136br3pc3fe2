@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import { authPage } from '../../redux/slices';
+import { authPage, showAuth } from '../../redux/slices';
 
 const Login = () => {
 
@@ -26,6 +26,8 @@ const Login = () => {
         validateOnChange: false,
         onSubmit: () => {
             alert('Logged in');
+            localStorage.setItem('loggedin', 'true');
+            dispatch(showAuth(false));
         }
     });
 

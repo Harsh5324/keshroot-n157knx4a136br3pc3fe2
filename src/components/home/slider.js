@@ -17,8 +17,10 @@ const Slider = () => {
     useEffect(() => {
         if (homeApi) {
             const imgs = [];
-            homeApi.slider.media.forEach(item => {
+            homeApi.slider.media.forEach((item, index) => {
+                // if (index !== 0) {
                 imgs.push({ url: item });
+                // }
             });
             setImages(imgs);
         };
@@ -69,8 +71,6 @@ const Slider = () => {
             className='slider'
             rewind
             color=''
-        // onSlideChange = {() => console.log('slide change')}
-        // onSwiper = {(swiper) => console.log(swiper)}
         >
             {images.map(item => (
                 <SwiperSlide>

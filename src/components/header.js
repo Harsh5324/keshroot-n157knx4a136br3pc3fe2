@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import icons from '../constants/icons';
@@ -12,6 +12,7 @@ import { showAuth, showCart } from '../redux/slices';
 const Header = ({ activepage }) => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleClose = () => {
         document.querySelector('.cover').style.display = 'none';
@@ -80,7 +81,7 @@ const Header = ({ activepage }) => {
                     <section className='third-section'>
                         <div className='icons'>
                             <img src={icons.search} />
-                            <img src={icons.user} onClick={() => dispatch(showAuth(true))} />
+                            <img src={icons.user} onClick={() => localStorage.getItem('loggedin') !== 'true' ? dispatch(showAuth(true)) : navigate('/my-account')} />
                             <img src={icons.shoppingBag} onClick={() => dispatch(showCart(true))} />
                         </div>
                     </section>

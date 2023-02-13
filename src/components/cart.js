@@ -45,7 +45,7 @@ const Cart = () => {
                 </section>
                 <p>Shipping & taxes calculated at checkout</p>
             </div>
-            <button className='checkout'>Processd To Checkout</button>
+            <button className='checkout' onClick={() => { navigate('/shop/checkout'); dispatch(showCart(false)) }}>Processd To Checkout</button>
             <button className='view-cart' onClick={() => { navigate('/shop/cart'); dispatch(showCart(false)) }}>View Cart</button>
         </div>
     ) : <></>);

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import StarRatings from 'react-star-ratings';
 
 import images from '../../constants/images';
 
@@ -73,8 +74,44 @@ const ProductDetails = () => (
     </>
 );
 
+const reviews = [
+    {
+        personName: 'Simran Channa',
+        review: `I have been dealing with an itchy, flaky scalp for years, but since using Keshroot, my scalp has been much happier. The blend of oils seems to be effective at nourishing and soothing my scalp. I've also noticed that my hair is much stronger and healthier. Would highly recommend giving this a try.`,
+        rating: 5,
+    },
+    {
+        personName: 'Sukoshi Shah',
+        review: `Mere curls bahut difficult hain manage karne ke liye, lekin Keshroot ne meri zindagi bahut asaan kar di hai. Ye meri curls ko define karta hai aur unhe hydrated rakhta hai. Mujhe bhi ye acchi lagti hai ki ye bilkul natural hai aur ayurvedic ingredients se bana hua hai. Main iss hair oil ko definitely use karti rahungi.`,
+        rating: 4
+    },
+    {
+        personName: 'Neerja Kulkarni',
+        review: `Mere baal bahut thin hain aur jaldi greasy ho jaate hain, lekin Keshroot meri baal ko heavy nahi bana deta aur greasy bhi nahi karta. Ye bahut light hai aur jaldi absorb hon jaata hai, meri baal ko soft aur healthy bana deta hai. Mainne dekha hai ki meri baal ke breakage aur split ends bhi bahut kam ho gaye hain Keshroot se use karne se. Main iss hair oil ko bahut recommend karti hoon.`,
+        rating: 4.5,
+    }
+]
+
 const Reviews = () => (
-    <></>
+    <div className='reviews'>
+        {
+            reviews.map(item => (
+                <div className='review'>
+                    <StarRatings
+                        rating={item.rating}
+                        starRatedColor='#9C4727'
+                        numberOfStars={5}
+                        name='rating'
+                        // starEmptyColor='#f7f7f7'
+                        starDimension={20}
+                        starSpacing={1.5}
+                    />
+                    <h3>{item.personName}</h3>
+                    <p>{item.review}</p>
+                </div>
+            ))
+        }
+    </div>
 );
 
 const ShippingAndReturn = () => (

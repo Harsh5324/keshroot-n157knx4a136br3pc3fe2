@@ -99,7 +99,7 @@ const SectionA = () => {
             </div>
             <div className='tax'>Tax included.</div>
             <h3>About product</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.</p>
+            <p>Keshroot Ayurvedic Oil is an all-natural hair care solution made from 13 rich herbs and extracts that nourish the roots and promote healthy, strong hair.</p>
             <div className='size'>
                 <h3>Size</h3>
                 <span id='ml'>{sizes ? sizes[mlIndex].size : 0}</span>

@@ -411,6 +411,29 @@ h3 {
     margin-right: 0;
 }
 
+.shop .reviews .review {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    /* padding: 0 20px; */
+    padding-bottom: 15px;
+}
+
+.shop .reviews .review:first-child {
+    margin-top: 0;
+}
+
+.shop .reviews .review h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.shop .reviews .review p {
+    font-size: 16px;
+    color: #666;
+}
+
 @media (max-width: 1180px) {
     .shop .product {
         flex-direction: column;

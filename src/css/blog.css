@@ -69,6 +69,18 @@
     font-weight: bold;
 }
 
+.blog .post-view .content ul {
+    margin: 10px 0;
+    color: #000;
+    padding-left: 15px;
+    display: block;
+}
+
+.blog .post-view .content ul li {
+    color: #382924;
+    line-height: 25px;
+}
+
 .recent-posts {
     width: 200px;
     margin-right: 20px;

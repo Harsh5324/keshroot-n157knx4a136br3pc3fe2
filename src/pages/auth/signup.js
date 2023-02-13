@@ -41,7 +41,7 @@ const Signup = () => {
         <input type='text' placeholder='Email ID' onChange={handleChange('emailID')} />
         {errors.emailID && (<div className='err'>{errors.emailID}</div>)}
         {/* <span className='forgot'>Forgot Password?</span> */}
-        <button onClick={handleSubmit}>Log in</button>
+        <button onClick={handleSubmit}>Sign up</button>
         <div className='bottom-text'>Already have an account ? <span onClick={() => dispatch(authPage('login'))}>Log in</span></div>
     </div>);
 }

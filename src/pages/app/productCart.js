@@ -22,6 +22,7 @@ const ProductCart = () => {
     const [states, setStates] = useState([]);
     const [selectedState, setSelectedStates] = useState('Gujarat');
     const [isMobile, setIsMobile] = useState(false);
+    const [isNavigate, setIsNavigate] = useState(false);
 
     const navigate = useNavigate();
 
@@ -48,7 +49,9 @@ const ProductCart = () => {
         validateOnChange: false,
         validateOnBlur: false,
         onSubmit: () => {
-            alert('Form submitted');
+            if (isNavigate) {
+                navigate('/shop/checkout');
+            }
         }
     })
 
@@ -195,7 +198,7 @@ const ProductCart = () => {
                             {errors.zipCode && <div className='err'>{errors.zipCode}</div>}
                         </div>
                         <div className='row'>
-                            <button onClick={handleSubmit}>Calculate Shipping</button>
+                            <button onClick={() => { setIsNavigate(false); handleSubmit(); }}>Calculate Shipping</button>
                         </div>
                     </section>
                     <section className='third'>
@@ -208,7 +211,10 @@ const ProductCart = () => {
                         <div className='row'>
                             <span>Shipping & taxes calculated at checkout</span>
                         </div>
-                        <button>Processd To Checkout</button>
+                        <button onClick={() => {
+                            setIsNavigate(true);
+                            handleSubmit();
+                        }}>Processd To Checkout</button>
                     </section>
                 </main>
             </div>

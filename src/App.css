@@ -687,7 +687,7 @@ section.navigations a:hover:after {
 }
 
 .what-people h2 {
-  margin-bottom: 10px;
+  margin-bottom: 70px;
 }
 
 .what-people p {
@@ -1265,6 +1265,7 @@ body::-webkit-scrollbar-thumb {
   max-width: 100%;
   width: 350px;
   text-transform: capitalize;
+  margin-top: -10px;
 }
 
 .cart {
